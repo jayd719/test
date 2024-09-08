@@ -7,10 +7,14 @@ const containerControls = createDivElement([
   "py-10",
 ]);
 document.body.appendChild(containerControls);
-console.log(containerControls);
+
 const buttons = [
   {
     text: "Bubble Sort",
+    function: () => bubbleSortWithSwapped(nodesContainer),
+  },
+  {
+    text: "Bubble Sort Without Swapped Flag",
     function: () => bubbleSort(nodesContainer),
   },
   { text: "Alert", function: () => alert(" ") },
@@ -30,3 +34,6 @@ buttons.forEach(({ text, link, function: onClick }) => {
   containerControls.appendChild(buttonElement);
 });
 containerControls.lastChild.classList.add("btn-error");
+
+containerControls.appendChild(s.comps_out);
+containerControls.appendChild(s.shifts_out);

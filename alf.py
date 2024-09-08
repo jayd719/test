@@ -10,6 +10,18 @@ def shuffle(arr):
         arr[i],arr[j] = arr[j],arr[i]
     return arr
 
-NODES = 5
+
+
+def bubbleSort(arr):
+    arr_len = len(arr)
+    for i in range(arr_len):
+        for j in range(i,arr_len):
+            if(arr[i]>arr[j]):
+                arr[i],arr[j] = arr[j],arr[i]
+    return arr
+
+NODES = 20
 arr = shuffle(list(range(NODES)))
+print(arr)
+arr = bubbleSort(arr)
 print(arr)

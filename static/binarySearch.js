@@ -38,7 +38,7 @@ function createATagElement(classses, link, text) {
 }
 
 function createNode(textContent) {
-  let node = createDivElement(["btn", "btn-primary", "rounded-lg"]);
+  let node = createDivElement(["btn", "btn-primary", "rounded-sm"]);
   node.textContent = textContent;
   return node;
 }
@@ -54,12 +54,43 @@ function randomInterger(upperLimit) {
 }
 
 function addNodesToMainContainer(mainContainer, nodes) {
-  mainContainer.innerText=""
+  mainContainer.innerText = "";
   for (i = 0; i < nodes; i++) {
     mainContainer.appendChild(createNode(randomInterger(nodes)));
   }
 }
 
+class StatsModule {
+  constructor() {
+    this.comps = 0;
+    this.shifts = 0;
+    this.class = ["text-5xl"];
+    this.comps_out = createSpanElement(this.class, this.comps);
+    this.shifts_out = createSpanElement(this.class, this.shifts);
+  }
+  reset() {
+    this.shifts = 0;
+    this.comps = 0;
+    this.diplayStats()
+  }
+
+  incrementShift() {
+    this.shifts++;
+    this.diplayStats()
+    
+  }
+  incrementComp() {
+    this.comps++;
+    this.diplayStats()
+    
+  }
+  diplayStats() {
+    this.shifts_out.textContent = this.shifts
+    this.comps_out.textContent= this.comps
+  }
+}
+
+const s = new StatsModule();
 let numberOfNodes = 96;
 const nodesContainer = createDivElement([
   "container",
